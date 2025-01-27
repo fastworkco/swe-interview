@@ -2,6 +2,9 @@
 /dist
 /node_modules
 
+#Volume for Postgres
+data
+
 # Logs
 npm-debug.log*
 yarn-debug.log*

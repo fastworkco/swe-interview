@@ -13,7 +13,6 @@ This project demonstrates a REST API implementation for managing items, written 
 
 ## Additional Features
 - Cache result of each request for 60 seconds
-- Integrating with databases like PostgreSQL, MongoDB, etc.
 
 ## Endpoints
 
@@ -26,20 +25,24 @@ This project demonstrates a REST API implementation for managing items, written 
 - **POST** `/items`
 - **Request Body**:
   ```json
-  {
-    "name": "string",
-    "price": number
-    "amount": number
-  }
+  [
+    {
+      "name": "string",
+      "price": number
+      "amount": number
+    }
+  ]
   ```
 - **Response**:
   ```json
-  {
-    "id": "string",
-    "name": "string",
-    "price": number,
-    "amount": number
-  }
+  [
+    {
+      "id": "string",
+      "name": "string",
+      "price": number,
+      "amount": number
+    }
+  ]
   ```
 
 #### 2. Get All Items
@@ -101,14 +104,17 @@ This project demonstrates a REST API implementation for managing items, written 
 
 ```
 swe-interview/
+├── migrations/          # Database migration file
+├── seeds/               # Seed file
 ├── src/
 │   ├── index.ts         # Entry point
+│   ├── knexfile.ts      # Knex configuration
 ├── .eslintrc.json       # ESLint configuration
 ├── .prettierrc          # Prettier configuration
 ├── package.json         # Dependencies and scripts
 ├── tsconfig.json        # TypeScript configuration
 ├── jest.config.js       # Jest configuration
-├── items.csv            # items storage file
+├── docker-compose.yaml  # Docker for PostgreSQL
 └── README.md            # Instructions for candidates
 ```
 
@@ -135,18 +141,26 @@ Ensure you have the following installed:
    npm install
    ```
 
-3. Run the project:
+3. Run PostgreSQL Local:
+   ```bash
+   docker-compose up -d
+   ```
+
+3. Run database migration:
+   ```bash
+   yarn run migrate
+   ```
+
+4. Run seed data:
+   ```bash
+   yarn run seed
+   ```
+
+5. Run the project:
    ```bash
    yarn dev
    # or
    npm run dev
    ```
 
-4. Access the API at `http://localhost:3000`.
-
-## Scripts
-
-- `yarn dev` / `npm run dev`: Run the server in development mode
-- `yarn build` / `npm run build`: Compile TypeScript to JavaScript
-- `yarn start` / `npm start`: Run the server in production mode
-- `yarn lint` / `npm run lint`: Lint the code
+6. Access the API at `http://localhost:3000`.
