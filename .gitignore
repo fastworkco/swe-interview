@@ -4,7 +4,6 @@
 
 #Volume for Postgres
 data/*
-!data/.gitkeep 
 
 # Logs
 npm-debug.log*

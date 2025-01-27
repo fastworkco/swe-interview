@@ -104,6 +104,7 @@ This project demonstrates a REST API implementation for managing items, written 
 
 ```
 swe-interview/
+├── data/                # Directory for mount to docker
 ├── migrations/          # Database migration file
 ├── seeds/               # Seed file
 ├── src/
@@ -143,6 +144,7 @@ Ensure you have the following installed:
 
 3. Run PostgreSQL Local:
    ```bash
+   mkdir data
    docker-compose up -d
    ```
 
