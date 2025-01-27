@@ -3,7 +3,7 @@
 /node_modules
 
 #Volume for Postgres
-data
+data/*
 
 # Logs
 npm-debug.log*
